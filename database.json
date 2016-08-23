@@ -1,0 +1,48 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Parameters": {
+    "ReadCapacityUnits": {
+      "Type": "String"
+    },
+    "WriteCapacityUnits": {
+      "Type": "String"
+    }
+  },
+  "Resources": {
+    "MovieTable": {
+      "Type": "AWS::DynamoDB::Table",
+      "Properties": {
+        "AttributeDefinitions": [
+          {
+            "AttributeName": "user",
+            "AttributeType": "S"
+          },
+          {
+            "AttributeName": "password",
+            "AttributeType": "S"
+          },
+          {
+            "AttributeName": "email",
+            "AttributeType": "S"
+          }
+        ],
+        "KeySchema": [
+          {
+            "AttributeName": "user",
+            "KeyType": "HASH"
+          }
+        ],
+        "ProvisionedThroughput": {
+          "ReadCapacityUnits": {"Ref": "ReadCapacityUnits"},
+          "WriteCapacityUnits": {"Ref": "WriteCapacityUnits"}
+        }
+      }
+    }
+  },
+  "Outputs": {
+    "MovieTableId": {
+      "Description": "The physical id of the movie table.",
+      "Value": {"Ref": "MovieTable"}
+    }
+  }
+}

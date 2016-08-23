@@ -1,0 +1,9 @@
+{
+  "TemplatePath": {
+    "ArtifactName": "SourceArtifact",
+    "ArtifactFileName": "codedeploy.json"
+  },
+  "Parameters": {
+    "MovieTableId": {"Fn::GetParam": ["DataBaseArtifact", "outputs.json", "MovieTableId"]}
+  }
+}

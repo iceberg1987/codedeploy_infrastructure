@@ -1,0 +1,10 @@
+{
+  "TemplatePath": {
+    "ArtifactName": "SourceArtifact",
+    "ArtifactFileName": "database.json"
+  },
+  "Parameters": {
+    "ReadCapacityUnits": "2",
+    "WriteCapacityUnits": "2"
+  }
+}
